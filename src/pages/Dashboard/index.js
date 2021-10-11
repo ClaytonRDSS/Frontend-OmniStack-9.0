@@ -17,6 +17,7 @@ export default function DashBoard() {
             });
 
            setSpots(response.data);
+           console.log(response.data);
         }
 
         loadSpots();

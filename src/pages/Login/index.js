@@ -35,7 +35,7 @@ export default function Login({history}) {
 
           <label htmlFor="email">E-MAIL *</label>
           <input
-
+            required
             type="email"
             id="email"
             placeholder="Seu Melhor -email"
