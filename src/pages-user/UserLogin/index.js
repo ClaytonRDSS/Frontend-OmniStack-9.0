@@ -4,6 +4,10 @@ import api from '../../services/api'
 
 import { useState, useEffect } from "react";
 
+import {Link} from 'react-router-dom';
+
+import './styles.css'
+
 //history = usado para fazer navegação 
 export default function Login({ history }) {
 
@@ -12,10 +16,10 @@ export default function Login({ history }) {
 
     //verifica se o usuário está logado, e direciona ele pra tela de list
     useEffect(() => {
-            const login = localStorage.getItem('user');
-            if (login) {
-                history.push('/list');
-            }  
+        const login = localStorage.getItem('user');
+        if (login) {
+            history.push('/list');
+        }
     }, [history]);
 
     async function handleSubmit(event) {
@@ -69,6 +73,10 @@ export default function Login({ history }) {
 
                 <button className="btn" type="submit" >
                     Encontrar Spots
+                </button>
+
+                <button className="btn1" type="submit">
+                    <Link className='text-link' to="/dashboard">Voltar para o Dashboard</Link>
                 </button>
 
             </form>

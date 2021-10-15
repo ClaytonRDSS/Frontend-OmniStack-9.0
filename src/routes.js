@@ -10,6 +10,8 @@ import Book from './pages-user/Book';
 import List from './pages-user/List';
 import UserLogin from './pages-user/UserLogin';
 
+import MyBook from './pages-user/MyBook';
+
 export default function Routes() {
     return (
         <BrowserRouter>
@@ -20,6 +22,7 @@ export default function Routes() {
                 <Route path="/list" component={List} />
                 <Route path="/book/:id" component={Book} />
                 <Route path="/user-login" component={UserLogin} />
+                <Route path="/my-book" component={MyBook}/>
             </Switch>
         </BrowserRouter>
     );

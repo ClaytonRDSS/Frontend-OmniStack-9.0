@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
 
-import {useHistory} from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
+import api from '../../services/api';
 
-
-
-import api from '../services/api';
 
 import './styles.css';
 
-export default function SpotList({tech}) {
+export default function SpotList({ tech }) {
+
+
+
 
     const [spots, setSpots] = useState([]);
 
@@ -31,8 +32,20 @@ export default function SpotList({tech}) {
         history.push(`Book/${id}`)
     }
 
+
+
+    function cleanLoggedUser() {
+        localStorage.clear();
+        history.push('/user-login')
+    }
+
     return (
         <>
+            <Link to="/my-book">
+                <button className="btn">
+                    My Books
+                </button>
+            </Link>
             <p>
                 Empresas que usam <strong>{tech}</strong>
             </p>
@@ -43,15 +56,17 @@ export default function SpotList({tech}) {
                         <header style={{ backgroundImage: `url(${spot.thumbnail_url})` }} />
                         <strong>{spot.company}</strong>
                         <span>{spot.price ? `R$${spot.price}/dia` : 'GRATUITO'}</span>
-                       
+
                         <button onClick={() => handleNavigate(spot._id)} className="btn" type="submit" >
                             Solicitar reserva
                         </button>
-                        
-                       
+
                     </li>
                 ))}
             </ul>
+            <button onClick={() => cleanLoggedUser()}  className="btn2" type="submit" >
+                Sair
+            </button>
         </>
     )
 }

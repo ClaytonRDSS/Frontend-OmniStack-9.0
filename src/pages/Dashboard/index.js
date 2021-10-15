@@ -13,7 +13,7 @@ export default function DashBoard() {
         async function loadSpots() {
             const user_id = localStorage.getItem('user');
             const response = await api.get('/dashboard', {
-                headers: { user_id }
+                headers: { user_id },
             });
 
            setSpots(response.data);
@@ -33,6 +33,10 @@ export default function DashBoard() {
                     </li>
                 ))}
             </ul>
+
+            <Link to="/user-login">
+               <button className="btn4">Encontrar Spots Cadastrados</button>
+            </Link>
 
             <Link to="/new">
                <button className="btn"> Cadastrar novo Spot </button>
