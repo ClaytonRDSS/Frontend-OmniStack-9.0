@@ -1,17 +1,20 @@
 import React from "react";
 import { Link} from 'react-router-dom';
 
+import imag from '../../assets/imag.png';
+
 import './styles.css'
 
 export default function Books({ books }) {
 
+    
     
     console.log("Books");
     return <div className="books">
          <h1>Dados Das Reservas</h1>
         {books.map((book) => (
             <div className="book">
-                <img className="book-thumbnail" src={book.spot.thumbnail_url} alt="" />
+                <img onError={(e) => e.target.src= imag} className="book-thumbnail" src={book.spot.thumbnail_url ? book.spot.thumbnail_url : imag } alt="" />
 
                 <div className="book-span">
 

@@ -14,3 +14,10 @@ button.btn2 {
   button.btn2:hover {
     background: rgb(168, 167, 167);
   }
+
+  ul.spot-list header {
+    width: 100%;
+    height: 120px;
+    background-size: cover;
+    border-radius: 10px;
+  }
